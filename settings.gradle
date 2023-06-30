@@ -2,6 +2,9 @@ pluginManagement {
 	repositories {
 		mavenCentral()
 		gradlePluginPortal()
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+		gradlePluginPortal()
 		maven { url "https://repo.spring.io/release" }
 	}
 }
@@ -10,6 +13,12 @@ plugins {
 	id "com.gradle.enterprise" version "3.12.6"
 	id "io.spring.ge.conventions" version "0.0.13"
 }
+gradleEnterprise {
+	buildScan {
+		server = "https://gradle-enterprise.mycompany.com"
+	}
+}
+
 
 include "spring-aop"
 include "spring-aspects"
